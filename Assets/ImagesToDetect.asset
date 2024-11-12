@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
-  m_Name: ReferenceImageLibrary
+  m_Name: ImagesToDetect
   m_EditorClassIdentifier: 
-  m_GuidLow: 5330390734820950434
-  m_GuidHigh: 3457443394967109260
+  m_GuidLow: 5442974998020421227
+  m_GuidHigh: 15811217163079423374
   m_DataStore:
     m_Storage: []
   m_Images:
   - m_SerializedGuid:
-      m_GuidLow: 4842053457587107108
-      m_GuidHigh: 7363821729473196194
+      m_GuidLow: 5247377488189849592
+      m_GuidHigh: 18154115044145778873
     m_SerializedTextureGuid:
-      m_GuidLow: 16430241910255274575
-      m_GuidHigh: 3143750354108030859
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: unitylogowhiteonblack
-    m_Texture: {fileID: 2800000, guid: 5a804a4ff1f7e4038b1f1e6f4ad8a02b, type: 3}
+      m_GuidLow: 4906413264876682846
+      m_GuidHigh: 13962448026452822427
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: portfolioQR
+    m_Texture: {fileID: 2800000, guid: 7e3d3e5e14de44179b0993fb8094c4c1, type: 3}
   - m_SerializedGuid:
-      m_GuidLow: 4705229552302464780
-      m_GuidHigh: 14596953629306601652
+      m_GuidLow: 5735363003485431149
+      m_GuidHigh: 8578006215309703328
     m_SerializedTextureGuid:
       m_GuidLow: 15272888154903064146
       m_GuidHigh: 17109692305113740872
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
+    m_Size: {x: 0.1, y: 0.13333334}
+    m_SpecifySize: 1
     m_Name: shrek
     m_Texture: {fileID: 2800000, guid: 8f44ae5232dbd3f448f6891e80d671ed, type: 3}
