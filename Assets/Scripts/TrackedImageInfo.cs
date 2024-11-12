@@ -5,6 +5,7 @@ using UnityEngine.XR.ARFoundation;
 public class TrackedImageInfo : MonoBehaviour
 {
     
+
     [SerializeField] ARTrackedImageManager m_TrackedImageManager;
     [SerializeField] InputActionReference m_ToggleAction;
 
