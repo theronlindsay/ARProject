@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] public GameObject enemyPrefab;  // The enemy prefab to spawn
-    [SerializeField] public GameObject spawnerPrefab; // The spawnerPrefab that defines the spawn location
+    [SerializeField] public GameObject spawnPoint; // The spawnerPrefab that defines the spawn location
     public float minSpawnInterval = 1f;  // Minimum spawn interval (in seconds)
     public float maxSpawnInterval = 5f;  // Maximum spawn interval (in seconds)
     public float spawnHeight = 1f;  // Height at which to spawn the enemies
@@ -34,9 +34,9 @@ public class EnemySpawner : MonoBehaviour
 
             // Use the spawnerPrefab's position to calculate the spawn position
             Vector3 spawnPosition = new Vector3(
-                spawnerPrefab.transform.position.x + Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
+                spawnPoint.transform.position.x + Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
                 spawnHeight,  // Set the spawn height above the ground
-                spawnerPrefab.transform.position.z + Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
+                spawnPoint.transform.position.z + Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
             );
 
             // Spawn the enemy at the calculated position
