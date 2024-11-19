@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
     private bool started;
     public GameObject player;
     public GameObject EnemyHolder;
+    public float speed = 0.6f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -19,7 +20,7 @@ public class EnemyAI : MonoBehaviour
         if(started)
         {
             EnemyHolder.transform.LookAt(player.transform);
-            EnemyHolder.transform.Translate(Vector3.forward * Time.deltaTime);
+            EnemyHolder.transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
     }
 
