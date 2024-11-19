@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5680200895497718855, guid: 6f5dd69cdd79a744aa72712678f22bc7, type: 3}
-  shootForce: 50
+  shootForce: 40
   upwardForce: 0
   timeBetwenShooting: 0.5
   spread: 0.1
