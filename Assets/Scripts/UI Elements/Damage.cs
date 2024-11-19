@@ -21,7 +21,7 @@ public class Damage : MonoBehaviour
     public bool dead = false;
     private void Start()
     {
-        heartHealth = FindObjectOfType<HeartHealth>(); // Finds the HeartHealth script in the scene
+        heartHealth = FindFirstObjectByType<HeartHealth>(); // Finds the HeartHealth script in the scene
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
