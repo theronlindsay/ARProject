@@ -12,7 +12,16 @@ public class EnemySpawner : MonoBehaviour
     public int maxEnemies = 10;
     public Vector3 spawnAreaSize = new Vector3(10f, 0f, 10f);  // Spawn area size (X, Z)
 
+    public GamePlayLoop gamePlayLoop;
+
     private bool isSpawning = false;  // Whether the spawning is active
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        gamePlayLoop = GameObject.Find("EventSystem").GetComponent<GamePlayLoop>();
+        gamePlayLoop.AddSpawner(gameObject);
+    }
 
     public void StartSpawning(int level)
     {
@@ -32,12 +41,14 @@ public class EnemySpawner : MonoBehaviour
             float spawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(spawnDelay);
 
-            // Use the spawnerPrefab's position to calculate the spawn position
-            Vector3 spawnPosition = new Vector3(
-                spawnPoint.transform.position.x + Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
-                spawnHeight,  // Set the spawn height above the ground
-                spawnPoint.transform.position.z + Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
-            );
+            // // Use the spawnerPrefab's position to calculate the spawn position
+            // Vector3 spawnPosition = new Vector3(
+            //     spawnPoint.transform.position.x + Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
+            //     spawnHeight,  // Set the spawn height above the ground
+            //     spawnPoint.transform.position.z + Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
+            // );
+
+            Vector3 spawnPosition = spawnPoint.transform.position;
 
             // Spawn the enemy at the calculated position
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

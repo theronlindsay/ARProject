@@ -8,10 +8,12 @@ public class HeartHealth : MonoBehaviour
     public Image[] hearts; // Array to hold heart images
     private int maxHealth = 3;
     private int currentHealth;
+    public GameObject gameOverScreen; // Reference to the Game Over screen  
 
     public GameObject redFlashPanel; // Reference to the red flash panel
     public float flashDuration = 0.2f; // Duration of the flash
     private Image panelImage;
+    
 
     //public Image[] cracks;
     //public float crackDuration = 0.5f;
@@ -34,6 +36,7 @@ public class HeartHealth : MonoBehaviour
         {
             currentHealth--;
             UpdateHearts();
+            FlashRedScreen();
         }
 
         //if (currentHealth <= cracks.Length)
@@ -46,7 +49,11 @@ public class HeartHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player has died!");
-            // You can add additional death handling logic here
+            //Show the Game Over screen
+            gameOverScreen.SetActive(true);
+            // Pause Game
+            Time.timeScale = 0;
+
         }
     }
 

@@ -44,7 +44,7 @@ public class Damage : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int amount)
+    public void TakeDamage(int amount)
     {
         health -= amount;
         heartHealth.TakeDamage();
