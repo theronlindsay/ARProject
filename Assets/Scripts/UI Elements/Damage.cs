@@ -8,26 +8,26 @@ using UnityEngine.InputSystem.Processors;
 public class Damage : MonoBehaviour
 {
     public HeartHealth heartHealth;
-    private Rigidbody2D rb;
-    private Animator anim;
+    private Rigidbody2D rb;//
+    private Animator anim;//
     
     public int health = 3; // Initial health value
     public int damage = 1;   // Damage taken when touching a Enemy
-    [SerializeField] public int immuneTime = 2;
-    public bool immune = false;
+    [SerializeField] public int immuneTime = 2;//
+    public bool immune = false;//
 
-    public Image[] cracks;
-    public float crackDuration = 0.5f;
-    public bool dead = false;
+    public Image[] cracks;//
+    public float crackDuration = 0.5f;//
+    public bool dead = false;//
     private void Start()
     {
         heartHealth = FindFirstObjectByType<HeartHealth>(); // Finds the HeartHealth script in the scene
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();//
+        anim = GetComponent<Animator>();//
 
-        foreach (var crack in cracks)
+        foreach (var crack in cracks)//
         {
-            crack.gameObject.SetActive(false);
+            crack.gameObject.SetActive(false);//
         }
     }
 
