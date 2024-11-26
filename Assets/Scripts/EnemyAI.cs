@@ -1,10 +1,11 @@
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
     private bool started;
     public GameObject player;
+    public GameObject EnemyHolder;
+    public float speed = 0.6f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -18,18 +19,8 @@ public class EnemyAI : MonoBehaviour
     {
         if(started)
         {
-            transform.LookAt(player.transform);
-            transform.Translate(Vector3.forward * Time.deltaTime);
-        }
-    }
-
-    //When the enemy touches the player, the player looses health
-    public void OnTriggerEnter(Collider collision)  
-    {
-        Debug.Log("Collision detected");
-        if (collision.gameObject == player)
-        {
-            player.GetComponent<PlayerHealth>().TakeDamage(1);
+            EnemyHolder.transform.LookAt(player.transform);
+            EnemyHolder.transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
     }
 

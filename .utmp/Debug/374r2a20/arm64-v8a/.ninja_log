@@ -1,0 +1,19 @@
+# ninja log v5
+26	1270	7542370814459381	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	633ab9de4cd05464
+1	1200	7542370813628468	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	d50b5b1b85912c47
+17	1347	7542370815298132	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	4cb3ad8a30a738a6
+6	1600	7542370817803503	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	c22e4506b4397dee
+30	1465	7542370816457583	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	14efc2e0c0360213
+10	1466	7542370816437627	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	444c0f20f32b5de9
+14	1517	7542370816953895	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a3b07f5a0c925d80
+22	1612	7542370817823507	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	907dd78a663470a5
+1613	1728	7542370819115743	E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/374r2a20/obj/arm64-v8a/libgame.so	abbe050363980aba
+15	1724	7542873852095195	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	d50b5b1b85912c47
+33	1735	7542873852065194	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	a3b07f5a0c925d80
+37	1736	7542873852165204	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	14efc2e0c0360213
+41	1776	7542873852577092	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	633ab9de4cd05464
+19	1804	7542873852906124	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	c22e4506b4397dee
+22	1860	7542873853473381	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	907dd78a663470a5
+29	1870	7542873853569994	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	4cb3ad8a30a738a6
+25	1950	7542873854135254	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	444c0f20f32b5de9
+1950	2270	7542873857479769	E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/374r2a20/obj/arm64-v8a/libgame.so	abbe050363980aba
