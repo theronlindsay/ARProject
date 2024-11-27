@@ -67,7 +67,7 @@ public class Damage : MonoBehaviour
     private IEnumerator ShowCracks(int crackIndex)
     {
         // Ensure the crack image is visible
-        cracks[crackIndex].gameObject.SetActive(true);
+        cracks[crackIndex - 1].gameObject.SetActive(true);
 
         // Wait for the specified duration
         yield return new WaitForSeconds(crackDuration);
