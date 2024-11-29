@@ -92,15 +92,14 @@ public class HeartHealth : MonoBehaviour
         //cracks[crackIndex].gameObject.SetActive(false);
     }
 
-    //not used yet
-    //public void Heal()
-    //{
-    //    if (currentHealth < maxHealth)
-    //    {
-    //        currentHealth++;
-    //        UpdateHearts();
-    //    }
-    //}
+    public void Heal()
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth++;
+            UpdateHearts();
+        }
+    }
 
     public void FlashRedScreen()
     {

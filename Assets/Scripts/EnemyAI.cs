@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -6,6 +8,10 @@ public class EnemyAI : MonoBehaviour
     public GameObject player;
     public GameObject EnemyHolder;
     public float speed = 0.6f;
+    public float slowDuration = 5f; // How long the enemy should remain slowed
+    public float slowedSpeed = 0.0f; // Reduced speed for the enemy
+    private bool slowed = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
@@ -28,5 +34,31 @@ public class EnemyAI : MonoBehaviour
     public void StartEnemy()
     {
         started = true;
+    }
+
+    public void Slow()
+    {
+        if (!slowed)
+        {
+            StartCoroutine(SlowEnemy());
+        }
+    }
+    private IEnumerator SlowEnemy()
+    {
+        slowed = true;
+
+        // Save the original speed of the enemy
+        float originalSpeed = speed;
+
+        // Set the enemy's speed to the slowed value
+        speed = slowedSpeed;
+
+        // Wait for the duration of the slow effect
+        yield return new WaitForSeconds(slowDuration);
+
+        // Restore the enemy's original speed
+        speed = originalSpeed;
+
+        slowed = false;
     }
 }
