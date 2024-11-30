@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GamePlayLoop : MonoBehaviour
 {
-    private int level = 1;
+    public int level = 1;
     private int spawners = 0;
     public int kills = 0;
     public int totalKills = 0;  
