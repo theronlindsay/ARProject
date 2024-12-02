@@ -137,7 +137,7 @@ public class ShootingUI : MonoBehaviour
 
 
 
-    public void reload()
+    public void Reload()
     {
         if (currentAmmo < maxAmmo)
         {
