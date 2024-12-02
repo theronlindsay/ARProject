@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - SlothPot
+  - HealthPot
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - above fire button ui
-  - dont touch me
+  - BehindUI
+  - 
   - 
   - 
   - 
