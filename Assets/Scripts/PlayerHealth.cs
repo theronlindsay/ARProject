@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public Damage damageManager;
+    public HeartHealth damageManager;
     public bool tookDamage = false; 
 
 
     public void Start()
     {
-        damageManager = GameObject.Find("HealthManager").GetComponent<Damage>();
+        damageManager = GameObject.Find("HealthManager").GetComponent<HeartHealth>();
     }
     public void TakeDamage()
     {
-        damageManager.TakeDamage(1);
+        damageManager.TakeDamage();
     }
 
     public void OnCollisionEnter(Collision collision)

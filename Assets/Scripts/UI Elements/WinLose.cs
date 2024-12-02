@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class WinLose : MonoBehaviour
 {
-    public Damage damage;
+    public HeartHealth damage;
     public Text GameOver;
     public Text Victory;
     // Static variable to store the count of destroyed enemies

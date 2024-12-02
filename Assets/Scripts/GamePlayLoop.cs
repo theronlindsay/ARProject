@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Interaction.Toolkit.Samples.ARStarterAssets;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class GamePlayLoop : MonoBehaviour
 {
@@ -13,6 +16,10 @@ public class GamePlayLoop : MonoBehaviour
     public List<GameObject> spawnerList = new List<GameObject>();
     // Textmesh pro text for kill couunter
     public TextMeshProUGUI killCounter; 
+
+    public GameObject fireButton;
+    public GameObject XROrigin;
+    public GameObject objectSpawner;
 
     public void Start(){
                 
@@ -39,6 +46,13 @@ public class GamePlayLoop : MonoBehaviour
         if(spawners == 3){
             foreach (GameObject spawnPoint in spawnerList)
             {
+                fireButton.SetActive(true);
+                //Disable AR Mesh overlay
+                XROrigin.GetComponent<ARPlaneManager>().enabled = false;
+                //Disable the ability to place spawnersa
+                objectSpawner.GetComponent<ObjectSpawner>().enabled = false;
+                objectSpawner.GetComponent<ARInteractorSpawnTrigger>().enabled = false;
+
                 spawnPoint.GetComponent<EnemySpawner>().StartSpawning(level);
             }
         }

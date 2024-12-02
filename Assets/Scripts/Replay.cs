@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Replay : MonoBehaviour
+public class LevelReplay : MonoBehaviour
 {
     public int currentLevel;
     public EnemySpawner spawner;
+    public List<GameObject> spawnerList = new List<GameObject>();
 
     private void Start()
     {
@@ -11,8 +13,11 @@ public class Replay : MonoBehaviour
         spawner = GetComponent<EnemySpawner>();
     }
 
-    public void replayLevel()
+    public void ReplayLevel()
     {
-        spawner.StartSpawning(currentLevel);
+        foreach (GameObject spawner in spawnerList)
+        {
+            spawner.GetComponent<EnemySpawner>().StartSpawning(currentLevel);
+        }
     }
 }
