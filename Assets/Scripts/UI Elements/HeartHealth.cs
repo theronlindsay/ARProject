@@ -64,7 +64,7 @@ public class HeartHealth : MonoBehaviour
 
         if (currentHealth <= cracks.Length)
         {
-           StartCoroutine(ShowCracks(3 - currentHealth)); // Show crack based on damage taken
+           StartCoroutine(ShowCracks(2 - currentHealth)); // Show crack based on damage taken
         }
 
 
