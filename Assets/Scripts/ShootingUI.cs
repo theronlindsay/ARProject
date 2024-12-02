@@ -114,12 +114,15 @@ public class ShootingUI : MonoBehaviour
             currentAmmo--;
             bulletsShot++;
 
-            //Invode resetShot (if not done already)
+            //Invoke resetShot (if not done already)
             if (allowInvoke)
             {
                 Invoke("ResetShot", timeBetwenShooting);
                 allowInvoke = false;
             }
+
+            //Update the UI
+            UpdateAmmoDisplay();
 
             //if more than one bulletsPerTap make sure to repeat shoot function
             ////if (bulletsShot < bulletsPerTap && currentAmmo > 0)
