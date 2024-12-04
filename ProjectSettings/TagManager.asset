@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - SlothPot
   - HealthPot
+  - SlothPot
   layers:
   - Default
   - TransparentFX
@@ -14,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - BehindUI
+  - 
   - 
   - 
   - 
