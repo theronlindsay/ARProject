@@ -249,13 +249,15 @@ MonoBehaviour:
   timeBetweenShots: 0.5
   bulletsPerTap: 1
   allowButtonHold: 0
+  currentAmmo: 10
+  bulletsShot: 0
   fpsCam: {fileID: 2512387469332387782}
   attackPoint: {fileID: 2023571920}
   touchscreen: {fileID: -4583591036684423646, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   maxAmmo: 10
   isreloading: 0
-  ammoDisplay: {fileID: 0}
+  ammoDisplay: {fileID: 2117853138}
   allowInvoke: 1
 --- !u!1 &72989974
 GameObject:
@@ -4595,9 +4597,9 @@ MonoBehaviour:
   maxEnenmies: 10
   spawnerList: []
   killCounter: {fileID: 1147377909}
-  fireButton: {fileID: 0}
-  XROrigin: {fileID: 0}
-  objectSpawner: {fileID: 0}
+  fireButton: {fileID: 1236176931}
+  XROrigin: {fileID: 2512387470231460730}
+  objectSpawner: {fileID: 436358032}
 --- !u!1001 &1362734343
 PrefabInstance:
   m_ObjectHideFlags: 0

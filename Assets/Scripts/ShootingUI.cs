@@ -15,7 +15,7 @@ public class ShootingUI : MonoBehaviour
     public int bulletsPerTap;
     public bool allowButtonHold;
 
-    int currentAmmo, bulletsShot;
+    public int currentAmmo, bulletsShot;
 
     //bools
     bool shooting, readyToShoot, isReloading;
@@ -33,23 +33,28 @@ public class ShootingUI : MonoBehaviour
     //bug fix
     public bool allowInvoke = true;
 
-    private void Update()
-    {
-        MyInput();
-    }
+    // private void Update()
+    // {
+    //     MyInput();
+    // }
 
-    private void MyInput()
-    {
-        //if touchscreen is pressed, shoot
-        if (touchscreen.action.triggered && readyToShoot && !isReloading && currentAmmo > 0)
-        {
-            Shoot();
-        }
-    }
+    // private void MyInput()
+    // {
+    //     //if touchscreen is pressed, shoot
+    //     if (touchscreen.action.triggered && readyToShoot && !isReloading && currentAmmo > 0)
+    //     {
+    //         Shoot();
+    //     }
+    // }
 
     public void Shoot()
     {
-        Debug.Log("Shot");
+        //if the player has no ammo, return
+        if (currentAmmo <= 0 || isReloading)
+        {
+            return;
+        }
+
         readyToShoot = false;
 
         //Finds the position to hit using raycast
