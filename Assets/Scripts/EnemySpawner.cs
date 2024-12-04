@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public float spawnHeight = 1f;  // Height at which to spawn the enemies
     public int numEnemies = 0; // Determines the current amount of enemeies that have been spawned
     public int maxEnemies = 10;
+    public int eliminations;
     public Vector3 spawnAreaSize = new Vector3(10f, 0f, 10f);  // Spawn area size (X, Z)
 
     public GamePlayLoop gamePlayLoop;
@@ -28,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
         if (!isSpawning)
         {
             numEnemies = 0;
+            eliminations = 0;
             isSpawning = true;
             StartCoroutine(SpawnEnemies(level * maxEnemies));
         }
@@ -35,23 +37,17 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies(int totalEnemies)
     {
-        while (isSpawning && numEnemies < totalEnemies)
+        while (isSpawning && eliminations < totalEnemies){}
         {
             // Wait for a random interval before spawning the next enemy
             float spawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(spawnDelay);
 
-            // // Use the spawnerPrefab's position to calculate the spawn position
-            // Vector3 spawnPosition = new Vector3(
-            //     spawnPoint.transform.position.x + Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2),
-            //     spawnHeight,  // Set the spawn height above the ground
-            //     spawnPoint.transform.position.z + Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2)
-            // );
-
             Vector3 spawnPosition = spawnPoint.transform.position;
 
             // Spawn the enemy at the calculated position
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            newEnemy.GetComponent<EnemyAI>().SetSpawner(gameObject);
             numEnemies++;
         }
     }
@@ -59,5 +55,10 @@ public class EnemySpawner : MonoBehaviour
     public void StopSpawning()
     {
         isSpawning = false;
+    }
+
+    public void EliminateEnemy()
+    {
+        numEnemies--;
     }
 }

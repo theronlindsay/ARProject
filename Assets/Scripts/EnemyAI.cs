@@ -12,12 +12,19 @@ public class EnemyAI : MonoBehaviour
     public float slowedSpeed = 0.0f; // Reduced speed for the enemy
     private bool slowed = false;
 
+    private GameObject spawner;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         //Remove started if you want to change when the enemy starts moving
         started = true;
         player = GameObject.Find("Player");
+    }
+
+    public void SetSpawner(GameObject spawner)
+    {
+        this.spawner = spawner;
     }
 
     // Update is called once per frame
@@ -60,5 +67,10 @@ public class EnemyAI : MonoBehaviour
         speed = originalSpeed;
 
         slowed = false;
+    }
+
+    public void SignalDeath()
+    {
+        spawner.GetComponent<EnemySpawner>().EliminateEnemy();  
     }
 }

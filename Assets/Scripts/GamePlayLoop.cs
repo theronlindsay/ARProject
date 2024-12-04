@@ -21,8 +21,18 @@ public class GamePlayLoop : MonoBehaviour
     public GameObject XROrigin;
     public GameObject objectSpawner;
 
-    public void Start(){
-                
+    public void Update(){
+        //if total kills is equal to maxEnemies * level, proceed to next level
+        if(totalKills == level * maxEnenmies){
+            level++;
+            totalKills = 0;
+            kills = 0;
+            killCounter.text = "Enemies Killed " + kills + "/" + level * maxEnenmies;
+            foreach (GameObject spawner in spawnerList)
+            {
+                spawner.GetComponent<EnemySpawner>().StartSpawning(level);
+            }
+        }
     }
 
     public void EnemyKilled(){

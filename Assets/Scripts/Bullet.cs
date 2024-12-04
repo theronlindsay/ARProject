@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("Collision detected: " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
+            collision.gameObject.GetComponent<EnemyAI>().SignalDeath();
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
