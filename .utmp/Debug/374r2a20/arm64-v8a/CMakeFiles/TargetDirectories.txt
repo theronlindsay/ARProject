@@ -1,5 +1,0 @@
-E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/.utmp/Debug/374r2a20/arm64-v8a/CMakeFiles/edit_cache.dir
-E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/.utmp/Debug/374r2a20/arm64-v8a/CMakeFiles/rebuild_cache.dir
-E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/.utmp/Debug/374r2a20/arm64-v8a/GameActivity/CMakeFiles/game.dir
-E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/.utmp/Debug/374r2a20/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
-E:/School/College/2024 - 2025/GIMM 110/Actual Projects/AR Group Project/ARProject/.utmp/Debug/374r2a20/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

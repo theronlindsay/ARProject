@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -8,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class GamePlayLoop : MonoBehaviour
 {
+    private bool isGameRunning = false;
     public int level = 1;
     private int spawners = 0;
     public int kills = 0;
@@ -21,16 +21,23 @@ public class GamePlayLoop : MonoBehaviour
     public GameObject XROrigin;
     public GameObject objectSpawner;
 
+    public void Start(){
+        fireButton.SetActive(false);
+    }
+
     public void Update(){
-        //if total kills is equal to maxEnemies * level, proceed to next level
-        if(totalKills == level * maxEnenmies){
-            level++;
-            totalKills = 0;
-            kills = 0;
-            killCounter.text = "Enemies Killed " + kills + "/" + level * maxEnenmies;
-            foreach (GameObject spawner in spawnerList)
-            {
-                spawner.GetComponent<EnemySpawner>().StartSpawning(level);
+        if(isGameRunning){
+            Debug.Log("Total Kills: " + totalKills + " Kills: " + kills + " Level: " + level);
+            //if total kills is equal to maxEnemies * level, proceed to next level
+            if(totalKills == level * maxEnenmies){
+                level++;
+                totalKills = 0;
+                kills = 0;
+                killCounter.text = "Enemies Killed " + kills + "/" + level * maxEnenmies;
+                foreach (GameObject spawner in spawnerList)
+                {
+                    spawner.GetComponent<EnemySpawner>().StartSpawning(level);
+                }
             }
         }
     }
@@ -54,16 +61,18 @@ public class GamePlayLoop : MonoBehaviour
         spawners++;
 
         if(spawners == 3){
+            fireButton.SetActive(true);
             foreach (GameObject spawnPoint in spawnerList)
             {
-                fireButton.SetActive(true);
-                //Disable AR Mesh overlay
-                XROrigin.GetComponent<ARPlaneManager>().enabled = false;
-                //Disable the ability to place spawnersa
-                objectSpawner.GetComponent<ObjectSpawner>().enabled = false;
-                objectSpawner.GetComponent<ARInteractorSpawnTrigger>().enabled = false;
+                // //Disable AR Mesh overlay
+                // XROrigin.GetComponent<ARPlaneManager>().enabled = false;
+                // //Disable the ability to place spawners
+                // objectSpawner.GetComponent<ObjectSpawner>().enabled = false;
+                // objectSpawner.GetComponent<ARInteractorSpawnTrigger>().enabled = false;
 
                 spawnPoint.GetComponent<EnemySpawner>().StartSpawning(level);
+
+                isGameRunning = true;
             }
         }
     }

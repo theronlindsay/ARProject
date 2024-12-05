@@ -165,7 +165,7 @@ PlayerSettings:
   androidMinAspectRatio: 1
   applicationIdentifier:
     Android: com.ChimeraWare.SpatialAtonement
-    Standalone: com.unity.template.ar-mobile
+    Standalone: com.ChimeraWare.SpatialAtonement
     iPhone: com.chimeraware.arproject
   buildNumber:
     Bratwurst: 0

@@ -37,7 +37,8 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnEnemies(int totalEnemies)
     {
-        while (isSpawning && eliminations < totalEnemies){}
+        // while we are still spawning enemies, and we have not reached the total number of enemies to spawn, or havent eliminated all enemies, spawn a new enemy
+        while (isSpawning && (eliminations < totalEnemies || numEnemies < totalEnemies)){}
         {
             // Wait for a random interval before spawning the next enemy
             float spawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval);
