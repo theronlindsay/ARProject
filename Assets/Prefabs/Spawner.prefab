@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc357a678a9e6740adecb935e47636b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5856079367576341991, guid: 17819d589815bd34e9bd5a12b45b857d,
+  enemyPrefab: {fileID: 6355790253943550390, guid: 17819d589815bd34e9bd5a12b45b857d,
     type: 3}
   spawnPoint: {fileID: 196301235294108864}
   minSpawnInterval: 1
@@ -187,6 +187,7 @@ MonoBehaviour:
   spawnHeight: 1
   numEnemies: 0
   maxEnemies: 10
+  eliminations: 0
   spawnAreaSize: {x: 10, y: 0, z: 10}
   gamePlayLoop: {fileID: 0}
 --- !u!4 &1835818338212616480 stripped

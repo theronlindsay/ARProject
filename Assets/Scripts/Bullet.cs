@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Bullet : MonoBehaviour
 
 
     public void Start(){
+        
+        StartCoroutine(DestroyBullet());
         gamePlayLoop = GameObject.Find("EventSystem").GetComponent<GamePlayLoop>();
         health = GameObject.Find("HealthManager").GetComponent<HeartHealth>();
     }
@@ -17,11 +20,9 @@ public class Bullet : MonoBehaviour
         Debug.Log("Collision detected: " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyAI>().SignalDeath();
+            gamePlayLoop.EnemyKilled();
             Destroy(collision.gameObject);
             Destroy(gameObject);
-
-            gamePlayLoop.EnemyKilled();
         }
         if (collision.gameObject.tag == "HealthPot")
         {
@@ -29,13 +30,14 @@ public class Bullet : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
-
         if (collision.gameObject.tag == "SlothPot")
         {
             SlowAllEnemies();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
 
     private void SlowAllEnemies()
@@ -52,5 +54,12 @@ public class Bullet : MonoBehaviour
                 enemyAI.Slow(); // Call the Slow() method
             }
         }
+    }
+
+    //Destroy the bullet after 5 seconds
+    private IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }

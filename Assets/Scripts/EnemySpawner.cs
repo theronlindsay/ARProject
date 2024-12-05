@@ -35,10 +35,10 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnEnemies(int totalEnemies)
+    private IEnumerator SpawnEnemies(int level)
     {
         // while we are still spawning enemies, and we have not reached the total number of enemies to spawn, or havent eliminated all enemies, spawn a new enemy
-        while (isSpawning && (eliminations < totalEnemies || numEnemies < totalEnemies)){}
+        while (isSpawning && numEnemies < level * maxEnemies && eliminations < level * maxEnemies)
         {
             // Wait for a random interval before spawning the next enemy
             float spawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval);
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
             // Spawn the enemy at the calculated position
             GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            newEnemy.GetComponent<EnemyAI>().SetSpawner(gameObject);
+            newEnemy.GetComponentInChildren<EnemyAI>().SetSpawner(gameObject);
             numEnemies++;
         }
     }
@@ -60,6 +60,12 @@ public class EnemySpawner : MonoBehaviour
 
     public void EliminateEnemy()
     {
-        numEnemies--;
+        eliminations++;
+    }
+
+    public void SpawnExtra(){
+        Vector3 spawnPosition = spawnPoint.transform.position;
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        newEnemy.GetComponentInChildren<EnemyAI>().SetSpawner(gameObject);
     }
 }

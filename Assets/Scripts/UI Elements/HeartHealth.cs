@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Processors;
 
 public class HeartHealth : MonoBehaviour
 {
-    private int maxHealth = 3;
+    public int maxHealth = 3;
     private int currentHealth;
     [SerializeField] public int immuneTime = 2;
     public float crackDuration = 0.5f;
@@ -73,9 +73,8 @@ public class HeartHealth : MonoBehaviour
         {
             Debug.Log("Player has died!");
             //Show the Game Over screen
-            gameOverScreen.SetActive(true);
-            // Pause Game
-            Time.timeScale = 0;
+            WinLose winLose = GameObject.Find("EventSystem").GetComponent<WinLose>();
+            winLose.GameOver();
 
         }
     }
@@ -99,6 +98,24 @@ public class HeartHealth : MonoBehaviour
             currentHealth++;
             UpdateHearts();
         }
+    }
+
+    public void Heal(int amount)
+    {
+        if (currentHealth + amount > maxHealth)
+        {
+            currentHealth = maxHealth;
+            //Hide cracks
+            for(int i = 0; i < cracks.Length; i++)
+            {
+                cracks[i].gameObject.SetActive(false);
+            }   
+        }
+        else
+        {
+            currentHealth += amount;
+        }
+        UpdateHearts();
     }
 
     public void FlashRedScreen()

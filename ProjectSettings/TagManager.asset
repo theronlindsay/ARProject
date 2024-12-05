@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - HealthPot
   - SlothPot
+  - Bullet
   layers:
   - Default
   - TransparentFX

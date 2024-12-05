@@ -35,7 +35,6 @@ public class Reload : MonoBehaviour
         {
             // Start reloading
             isreloading = true;
-            Debug.Log("reloading...");
 
             // Start reloading animation or delay
             StartCoroutine(reloadCoroutine());
@@ -53,7 +52,6 @@ public class Reload : MonoBehaviour
 
         // After reloading, set current ammo to maxAmmo
         currentAmmo = maxAmmo;
-        Debug.Log("reloaded! Ammo is full.");
 
         // Update the UI
         UpdateAmmoDisplay();

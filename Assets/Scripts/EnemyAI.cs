@@ -6,13 +6,12 @@ public class EnemyAI : MonoBehaviour
 {
     private bool started;
     public GameObject player;
-    public GameObject EnemyHolder;
     public float speed = 0.6f;
     public float slowDuration = 5f; // How long the enemy should remain slowed
-    public float slowedSpeed = 0.0f; // Reduced speed for the enemy
+    public float slowedSpeed = 0.1f; // Reduced speed for the enemy
     private bool slowed = false;
 
-    private GameObject spawner;
+    public GameObject spawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
@@ -32,8 +31,8 @@ public class EnemyAI : MonoBehaviour
     {
         if(started)
         {
-            EnemyHolder.transform.LookAt(player.transform);
-            EnemyHolder.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.LookAt(player.transform);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
     }
 

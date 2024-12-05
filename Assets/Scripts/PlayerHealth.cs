@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
         {
             tookDamage = true;
             TakeDamage();
+            collision.gameObject.GetComponent<EnemyAI>().spawner.GetComponent<EnemySpawner>().SpawnExtra();
             Destroy(collision.gameObject);
             tookDamage = false;
         }
