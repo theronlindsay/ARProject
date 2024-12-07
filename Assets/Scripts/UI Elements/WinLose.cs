@@ -33,7 +33,7 @@ public class WinLose : MonoBehaviour
         // Update the UI text with the current count
         if (enemiesDestroyedText != null)
         {
-            enemiesDestroyedText.text = "Total Eliminations: " + destroyedEnemiesCount + " / " + totalEnemies;
+            enemiesDestroyedText.text = destroyedEnemiesCount.ToString();
         }
 
         if(destroyedEnemiesCount >= totalEnemies)

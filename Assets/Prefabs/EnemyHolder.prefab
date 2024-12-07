@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7134770429041669275}
   - component: {fileID: 6325993218632212714}
   - component: {fileID: 2872744460147232477}
-  - component: {fileID: 4236107356318281601}
+  - component: {fileID: 3466655967059821850}
   m_Layer: 0
   m_Name: EnemyHolder
   m_TagString: Enemy
@@ -78,8 +78,9 @@ MonoBehaviour:
   speed: 0.6
   slowDuration: 5
   slowedSpeed: 0.1
---- !u!135 &4236107356318281601
-SphereCollider:
+  spawner: {fileID: 0}
+--- !u!65 &3466655967059821850
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,8 +98,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.32825732
-  m_Center: {x: -0.08990306, y: 0.36710674, z: -0.035611153}
+  m_Size: {x: 0.39742362, y: 0.40696597, z: 0.5063524}
+  m_Center: {x: 0.00015980005, y: 0.037186503, z: 0.0034770966}
 --- !u!1001 &8513009292804230681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -125,12 +126,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2840d50e1aebd6a49aab8de4386ee57a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08941812
+      value: -0.012
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2840d50e1aebd6a49aab8de4386ee57a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000000059604645
+      value: -0.349
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2840d50e1aebd6a49aab8de4386ee57a,
         type: 3}
@@ -197,8 +198,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3451118302482216456, guid: 2840d50e1aebd6a49aab8de4386ee57a, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

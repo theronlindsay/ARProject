@@ -32,14 +32,14 @@ public class GamePlayLoop : MonoBehaviour
     public void EnemyKilled(){
         kills++; // this gets reset when level is incremented
         totalKills++; //this doesnt get reset
-        killCounter.text = "Enemies Remaining " + kills + "/" + level * maxEnemies;
+        killCounter.text = kills + "/" + level * maxEnemies;
         winLose.EnemyDestroyed(); // Increment the count of destroyed enemies
 
         if(kills >= level * maxEnemies){
             level++;
-            levelText.text = "Level " + level;
+            levelText.text = level.ToString();
             kills = 0;
-            killCounter.text = "Enemies Remaining " + kills + "/" + level * maxEnemies;
+            killCounter.text = kills + "/" + level * maxEnemies;
             foreach (GameObject spawner in spawnerList)
             {
                 spawner.GetComponent<EnemySpawner>().StartSpawning(level);
@@ -54,8 +54,8 @@ public class GamePlayLoop : MonoBehaviour
 
         if(spawners == 3){
             level++;
-            levelText.text = "Level " + level;
-            killCounter.text = "Enemies Remaining: " + kills + "/" + level * maxEnemies;
+            levelText.text = level.ToString();
+            killCounter.text = kills + "/" + level * maxEnemies;
             Debug.Log("Got all spawners");
             fireButton.SetActive(true);
             foreach (GameObject spawnPoint in spawnerList)
@@ -76,8 +76,8 @@ public class GamePlayLoop : MonoBehaviour
     public void ResetLevel(){
         kills = 0;
         totalKills = level * maxEnemies;
-        killCounter.text = "Enemies Remaining " + kills + "/" + level * maxEnemies;
-        levelText.text = "Level " + level;
+        killCounter.text = kills + "/" + level * maxEnemies;
+        levelText.text = level.ToString();
         winLose.ResetUI();
         //Find all Enemy and Bullet objects and destroy them
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");

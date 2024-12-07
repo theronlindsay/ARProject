@@ -28,7 +28,7 @@ public class ShootingUI : MonoBehaviour
 
     public int maxAmmo = 10;
     public bool isreloading = false;
-    public TMPro.TextMeshProUGUI ammoDisplay;
+    public GameObject[] ammoDisplay;
 
     //bug fix
     public bool allowInvoke = true;
@@ -160,7 +160,19 @@ public class ShootingUI : MonoBehaviour
         // Update the ammo display text (you can modify this to use other UI components)
         if (ammoDisplay != null)
         {
-            ammoDisplay.text = currentAmmo + " / " + maxAmmo;
+            // Loop through all ammo display objects
+            for(int i = 0; i < ammoDisplay.Length; i++)
+            {
+                // If the current ammo is less than the index, hide the ammo display object
+                if(i < currentAmmo)
+                {
+                    ammoDisplay[i].SetActive(true);
+                }
+                else
+                {
+                    ammoDisplay[i].SetActive(false);
+                }
+            }
         }
     }
 }
