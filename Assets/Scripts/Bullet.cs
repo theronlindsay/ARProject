@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,28 +7,37 @@ public class Bullet : MonoBehaviour
     private GamePlayLoop gamePlayLoop;
     private HeartHealth health;
 
+    bool gotHealth;
+    bool gotSloth;
+    int rand;
 
-    public void Start(){
-        
-        StartCoroutine(DestroyBullet());
+    public void Start()
+    {
         gamePlayLoop = GameObject.Find("EventSystem").GetComponent<GamePlayLoop>();
         health = GameObject.Find("HealthManager").GetComponent<HeartHealth>();
+
+        rand = Random.Range(0, 2);
+        gotHealth = false;
+        gotSloth = false;
     }
     public void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision detected: " + collision.gameObject.tag);
         if (collision.gameObject.tag == "Enemy")
         {
-            gamePlayLoop.EnemyKilled();
             Destroy(collision.gameObject);
             Destroy(gameObject);
+
+            gamePlayLoop.EnemyKilled();
         }
+
         if (collision.gameObject.tag == "HealthPot")
         {
             health.Heal();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
         if (collision.gameObject.tag == "SlothPot")
         {
             SlowAllEnemies();
@@ -37,7 +45,35 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        if (collision.gameObject.GetComponent<CargoShipAI>())
+        {
+            if (rand == 0)
+            {
+                if (!gotHealth)
+                {
+                    collision.gameObject.GetComponent<CargoShipAI>().DropHealth();
+                    gotHealth = true;
+                }
+                else if (!gotSloth)
+                {
+                    collision.gameObject.GetComponent<CargoShipAI>().DropSloth();
+                    gotSloth = true;
+                }
+            }
+            else if (rand == 1)
+            {
+                if (!gotSloth)
+                {
+                    collision.gameObject.GetComponent<CargoShipAI>().DropSloth();
+                    gotSloth = true;
+                }
+                else if (!gotHealth)
+                {
+                    collision.gameObject.GetComponent<CargoShipAI>().DropHealth();
+                    gotHealth = true;
+                }
+            }
+        }
     }
 
     private void SlowAllEnemies()
@@ -54,12 +90,5 @@ public class Bullet : MonoBehaviour
                 enemyAI.Slow(); // Call the Slow() method
             }
         }
-    }
-
-    //Destroy the bullet after 5 seconds
-    private IEnumerator DestroyBullet()
-    {
-        yield return new WaitForSeconds(5);
-        Destroy(gameObject);
     }
 }

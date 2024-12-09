@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - HealthPot
   - SlothPot
-  - Bullet
+  - HealthPot
+  - Cargo
   layers:
   - Default
   - TransparentFX
