@@ -28,7 +28,7 @@ public class CargoShipAI : MonoBehaviour
 
         kills = GetComponent<GamePlayLoop>().totalKills;
         level = GetComponent<GamePlayLoop>().level;
-        maxEnemies = GetComponent<GamePlayLoop>().maxEnenmies;
+        maxEnemies = GetComponent<GamePlayLoop>().maxEnemies;
 
         if (objectRenderer != null)
         {
