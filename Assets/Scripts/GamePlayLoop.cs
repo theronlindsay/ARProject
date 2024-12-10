@@ -40,6 +40,12 @@ public class GamePlayLoop : MonoBehaviour
             levelText.text = level.ToString();
             kills = 0;
             killCounter.text = kills + "/" + level * maxEnemies;
+
+            //Generate a random int between 0 and (level*maxEnemies)
+            int randomInt = Random.Range(0, level * maxEnemies);
+            int index = Random.Range(0, spawnerList.Count);
+            spawnerList[index].GetComponent<EnemySpawner>().SetCargoDrop(randomInt);
+
             foreach (GameObject spawner in spawnerList)
             {
                 spawner.GetComponent<EnemySpawner>().StartSpawning(level);
@@ -61,7 +67,7 @@ public class GamePlayLoop : MonoBehaviour
             foreach (GameObject spawnPoint in spawnerList)
             {
                 //Disable AR Mesh overlay
-                XROrigin.GetComponent<ARPlaneManager>().enabled = false;
+                //XROrigin.GetComponent<ARPlaneManager>().enabled = false;
                 //Disable the ability to place spawners
                 objectSpawner.GetComponent<ObjectSpawner>().enabled = false;
                 objectSpawner.GetComponent<ARInteractorSpawnTrigger>().enabled = false;

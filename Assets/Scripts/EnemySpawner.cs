@@ -5,6 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] public GameObject enemyPrefab;  // The enemy prefab to spawn
     [SerializeField] public GameObject spawnPoint; // The spawnerPrefab that defines the spawn location
+    [SerializeField] private GameObject cargoShipPrefab; // The cargo ship prefab to spawn
     public float minSpawnInterval = 1f;  // Minimum spawn interval (in seconds)
     public float maxSpawnInterval = 5f;  // Maximum spawn interval (in seconds)
     public float spawnHeight = 1f;  // Height at which to spawn the enemies
@@ -16,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     public GamePlayLoop gamePlayLoop;
 
     private bool isSpawning = false;  // Whether the spawning is active
+
+    public int dropTime;
 
     // Start is called before the first frame update
     void Start()
@@ -31,15 +34,19 @@ public class EnemySpawner : MonoBehaviour
             numEnemies = 0;
             eliminations = 0;
             isSpawning = true;
-            StartCoroutine(SpawnEnemies(level * maxEnemies));
+            StartCoroutine(SpawnEnemies(level));
         }
     }
 
     private IEnumerator SpawnEnemies(int level)
     {
         // while we are still spawning enemies, and we have not reached the total number of enemies to spawn, or havent eliminated all enemies, spawn a new enemy
-        while (isSpawning && numEnemies < level * maxEnemies && eliminations < level * maxEnemies)
+        while (isSpawning && numEnemies < ((level * maxEnemies)/3) + 1)
         {
+            if(numEnemies == dropTime){
+                Debug.Log("Dropping Cargo Ship");
+                SpawnShip();
+            }
             // Wait for a random interval before spawning the next enemy
             float spawnDelay = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(spawnDelay);
@@ -51,6 +58,7 @@ public class EnemySpawner : MonoBehaviour
             newEnemy.GetComponentInChildren<EnemyAI>().SetSpawner(gameObject);
             numEnemies++;
         }
+        StopSpawning();
     }
 
     public void StopSpawning()
@@ -67,5 +75,15 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPosition = spawnPoint.transform.position;
         GameObject newEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         newEnemy.GetComponentInChildren<EnemyAI>().SetSpawner(gameObject);
+    }
+
+    public void SetCargoDrop(int index){
+        dropTime = index;
+    }
+
+    public void SpawnShip(){
+        Debug.Log("Spawning Cargo Ship");
+        Vector3 spawnPosition = spawnPoint.transform.position;
+        GameObject newShip = Instantiate(cargoShipPrefab, spawnPosition, Quaternion.identity);
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class CargoShipAI : MonoBehaviour
@@ -12,10 +12,6 @@ public class CargoShipAI : MonoBehaviour
 
     public Vector3 orbitPosition = Vector3.up; // Axis to orbit around
 
-    public int maxEnemies;
-    public int kills;
-    public int level;
-
     private Renderer objectRenderer; // sets Visibility for Cargo ship
 
     // booleans for the health and time slow powerups
@@ -24,39 +20,28 @@ public class CargoShipAI : MonoBehaviour
 
     public void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
+        target = GameObject.Find("Player").transform;
+        StartCoroutine(DropItems());
+    }
+    private IEnumerator DropItems()
+    {
+        yield return new WaitForSeconds(5);
+        DropHealth();
+        yield return new WaitForSeconds(5);
+        DropSloth();
+        yield return new WaitForSeconds(5);
+        Despawn();
+    }
 
-        kills = GetComponent<GamePlayLoop>().totalKills;
-        level = GetComponent<GamePlayLoop>().level;
-        maxEnemies = GetComponent<GamePlayLoop>().maxEnemies;
-
-        if (objectRenderer != null)
-        {
-            objectRenderer.enabled = false; // sets visibility to False by default
-        }
+    public void Orbit(){
+        transform.RotateAround(target.position, orbitPosition, orbitSpeed * Time.deltaTime);
+        Vector3 desiredPosition = (transform.position - target.position).normalized * orbitDistance + target.position;
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime);
     }
 
     public void Update()
     {
-        // when half of the enemies in any given level are killed, the Cargo Ship will spawn
-        if (kills >= (level * maxEnemies) / 2)
-        {
-            if (objectRenderer != null && !objectRenderer.enabled)
-            {
-                objectRenderer.enabled = true;
-            }
-
-            if (target != null)
-            {
-                transform.RotateAround(target.position, orbitPosition, orbitSpeed * Time.deltaTime);
-            }
-        }
-
-        // if both prefabs are gone, then the Cargo Ship despawns
-        if (!healthPickup && !timePickup)
-        {
-            Despawn();
-        }
+        Orbit();
     }
 
     public void DropHealth()
