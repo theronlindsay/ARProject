@@ -21,7 +21,7 @@
 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=$PROJECT/unityLibrary/build/intermediates/cxx/RelWithDebInfo/$HASH/obj/$ABI
 -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=$PROJECT/unityLibrary/build/intermediates/cxx/RelWithDebInfo/$HASH/obj/$ABI
 -DCMAKE_BUILD_TYPE=RelWithDebInfo
--DCMAKE_FIND_ROOT_PATH=/Users/user939479/Documents/GitHub/ARProject/.utmp/RelWithDebInfo/$HASH/prefab/$ABI/prefab
--B/Users/user939479/Documents/GitHub/ARProject/.utmp/RelWithDebInfo/$HASH/$ABI
+-DCMAKE_FIND_ROOT_PATH=C:/UnityProjects/ARProject/.utmp/RelWithDebInfo/$HASH/prefab/$ABI/prefab
+-BC:/UnityProjects/ARProject/.utmp/RelWithDebInfo/$HASH/$ABI
 -GNinja
 -DANDROID_STL=c++_shared
