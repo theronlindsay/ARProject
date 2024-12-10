@@ -8,7 +8,7 @@ public class WinLose : MonoBehaviour
 {
     public HeartHealth damage;
     public int totalEnemies = 60;
-    public TMPro.TextMeshProUGUI gameOver;
+    public GameObject gameOver;
     public TMPro.TextMeshProUGUI Victory;
     // Static variable to store the count of destroyed enemies
     public static int destroyedEnemiesCount = 0;

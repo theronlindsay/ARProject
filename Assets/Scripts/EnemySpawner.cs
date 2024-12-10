@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     private bool isSpawning = false;  // Whether the spawning is active
 
-    public int dropTime;
+    public int dropTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
         // while we are still spawning enemies, and we have not reached the total number of enemies to spawn, or havent eliminated all enemies, spawn a new enemy
         while (isSpawning && numEnemies < ((level * maxEnemies)/3) + 1)
         {
-            if(numEnemies == dropTime){
+            if(numEnemies == dropTime && dropTime != 0){
                 Debug.Log("Dropping Cargo Ship");
                 SpawnShip();
             }

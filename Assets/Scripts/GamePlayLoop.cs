@@ -20,6 +20,7 @@ public class GamePlayLoop : MonoBehaviour
     public GameObject fireButton;
     public GameObject XROrigin;
     public GameObject objectSpawner;
+    public GameObject tutorial;
     
     private WinLose winLose;
     public TMPro.TextMeshProUGUI levelText;
@@ -43,7 +44,7 @@ public class GamePlayLoop : MonoBehaviour
 
             //Generate a random int between 0 and (level*maxEnemies)
             int randomInt = Random.Range(0, level * maxEnemies);
-            int index = Random.Range(0, spawnerList.Count);
+            int index = Random.Range(0, spawnerList.Count - 1);
             spawnerList[index].GetComponent<EnemySpawner>().SetCargoDrop(randomInt);
 
             foreach (GameObject spawner in spawnerList)
@@ -71,6 +72,9 @@ public class GamePlayLoop : MonoBehaviour
                 //Disable the ability to place spawners
                 objectSpawner.GetComponent<ObjectSpawner>().enabled = false;
                 objectSpawner.GetComponent<ARInteractorSpawnTrigger>().enabled = false;
+
+                //Disable the tutorial
+                tutorial.SetActive(false);
 
                 spawnPoint.GetComponent<EnemySpawner>().StartSpawning(level);
 
